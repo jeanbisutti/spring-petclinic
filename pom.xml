@@ -32,6 +32,13 @@
   <dependencies>
 
     <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>applicationinsights-runtime-attach</artifactId>
+      <version>3.3.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
       <groupId>org.quickperf</groupId>
       <artifactId>quick-perf-junit5</artifactId>
       <version>1.1.0</version>
