@@ -30,6 +30,21 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>org.quickperf</groupId>
+      <artifactId>quick-perf-junit5</artifactId>
+      <version>1.1.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.quickperf</groupId>
+      <artifactId>quick-perf-jfr-annotations</artifactId>
+      <version>1.1.0</version>
+      <scope>test</scope>
+    </dependency>
+
     <!-- Spring and Spring Boot dependencies -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
