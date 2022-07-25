@@ -53,7 +53,7 @@ class AiStartUpTest {
 	@JvmOptions("-javaagent:applicationinsights-agent-3.3.1.jar")
 	void heap_allocation_all_threads_spring_boot_with_ai() {
 		ByteWatcher byteWatcher = new ByteWatcher();
-		byteWatcher.reset();
+		//byteWatcher.reset(); // Don't reset byte watcher because the agent is already installed at this point
 		String[] args = {};
 		PetClinicApplication.main(args);
 		byteWatcher.printAllAllocations();
