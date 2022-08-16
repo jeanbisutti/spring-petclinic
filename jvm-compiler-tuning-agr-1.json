@@ -4,12 +4,10 @@
       "net.bytebuddy*::*",
       "org.objectweb.asm*::*",
       "io.opentelemetry.javaagent.tooling.bytebuddy*::*",
-      " io.opentelemetry.javaagent.extension.matcher*::*",
+      "io.opentelemetry.javaagent.extension.matcher*::*",
       "io.opentelemetry.javaagent.tooling.util.NamedMatcher::*",
       "java.util.zip*::*",
-      "java.util.jar*::*",
-      "java.lang.instrument.ClassFileTransformer::transform",
-      "sun.instrument.TransformerManager::transform"
+      "java.util.jar*::*"
     ],
     c2: {
       Exclude: true
