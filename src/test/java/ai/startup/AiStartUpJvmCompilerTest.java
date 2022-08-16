@@ -20,6 +20,20 @@ class AiStartUpJvmCompilerTest {
 		String[] args = {};
 		PetClinicApplication.main(args);
 	}
+	@Test
+	@JvmOptions("-javaagent:applicationinsights-agent-3.3.1.jar -XX:+PrintCompilation -XX:TieredStopAtLevel=3")
+	void spring_boot_with_ai_agent_without_c2_compiler() {
+		String[] args = {};
+		PetClinicApplication.main(args);
+	}
+
+	@Test
+	@JvmOptions("-javaagent:applicationinsights-agent-3.3.1.jar -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:CompilerDirectivesFile=jvm-compiler-tuning.json")
+	void spring_boot_with_ai_agent_compiler_control() {
+		String[] args = {};
+		PetClinicApplication.main(args);
+	}
+
 
 	@Test
 	@ProfileJvm
