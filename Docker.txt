@@ -1,0 +1,5 @@
+Replace connection string in Dockerfile
+
+docker build .
+
+docker run -it <image> --cpus=".0625"
