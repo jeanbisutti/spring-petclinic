@@ -16,20 +16,36 @@
 
 package org.springframework.samples.petclinic;
 
+import com.microsoft.applicationinsights.attach.ApplicationInsights;
+import jfr.AiEnd;
+import jfr.AiStart;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * PetClinic Spring Boot Application.
  *
  * @author Dave Syer
- *
  */
 @SpringBootApplication
 public class PetClinicApplication {
 
+
 	public static void main(String[] args) {
-		SpringApplication.run(PetClinicApplication.class, args);
+
+		AiStart aiStart = new AiStart();
+		aiStart.begin();
+		aiStart.commit();
+
+		ApplicationInsights.attach();
+
+		AiEnd aiEnd = new AiEnd();
+		aiEnd.begin();
+		aiEnd.commit();
+
+		ConfigurableApplicationContext applicationContext = SpringApplication.run(PetClinicApplication.class, args);
+		applicationContext.close();
 	}
 
 }
