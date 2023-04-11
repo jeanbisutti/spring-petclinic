@@ -1,4 +1,4 @@
-# Spring PetClinic Sample Application with GraalVM native image and Application Insights[![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml)
+# Spring PetClinic Sample Application with GraalVM native image and Application Insights
 
 This project illustrates how to use Application Insights with the Petclinic application built as a native image.
 
