@@ -6,3 +6,6 @@ To try this project:
 1) Provide a [connection string](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config#connection-string) to an Application Insights resource in the [application.properties]([src/main/resources/application.properties](https://github.com/jeanbisutti/spring-petclinic/blob/5e4dffb736063198209c7840f1174a15a818b12d/src/main/resources/application.properties#L1)) file.
 2) Create a native image: `mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=petclinic-ai-native`
 3) Run the native image: `docker run -p 8080:8080 petclinic-ai-native`
+
+
+Click [here](https://github.com/jeanbisutti/spring-petclinic/commit/972cf991776f9a2cfbdd13f6d250f5eca44b738a) to see what has been added to the Petclinic application.
