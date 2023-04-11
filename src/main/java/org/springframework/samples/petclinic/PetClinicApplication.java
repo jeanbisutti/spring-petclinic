@@ -30,7 +30,8 @@ import org.springframework.context.annotation.ImportRuntimeHints;
 @ImportRuntimeHints(PetClinicRuntimeHints.class)
 public class PetClinicApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
+		Class.forName("io.opentelemetry.instrumentation.jdbc.OpenTelemetryDriver");
 		SpringApplication.run(PetClinicApplication.class, args);
 	}
 
