@@ -35,6 +35,10 @@
 
     <opentelemetry.version>1.28.0</opentelemetry.version>
 
+    <checkstyle.skip>true</checkstyle.skip>
+
+    <jacoco.skip>true</jacoco.skip>
+
   </properties>
 
   <dependencies>
@@ -143,7 +147,20 @@
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-starter-monitor</artifactId>
-      <version>1.0.0-beta.1</version> <!-- {x-version-update;com.azure.spring:spring-cloud-azure-starter-monitor;current} -->
+      <version>1.0.0-beta.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.opentelemetry.instrumentation</groupId>
+      <artifactId>opentelemetry-jdbc</artifactId>
+      <version>1.28.0-alpha</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.opentelemetry.instrumentation</groupId>
+      <artifactId>opentelemetry-logback-appender-1.0</artifactId>
+      <version>1.28.0-alpha</version>
+      <scope>runtime</scope>
     </dependency>
 
   </dependencies>
@@ -231,10 +248,22 @@
       <plugin>
         <groupId>org.graalvm.buildtools</groupId>
         <artifactId>native-maven-plugin</artifactId>
+        <configuration>
+          <buildArgs>
+            <arg>-Djava.security.properties=src/main/resources/custom.security</arg>
+          </buildArgs>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <image>
+            <env>
+              <BP_NATIVE_IMAGE_BUILD_ARGUMENTS>-Djava.security.properties=/workspace/BOOT-INF/classes/custom.security</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+            </env>
+          </image>
+        </configuration>
         <executions>
           <execution>
             <!-- Spring Boot Actuator displays build-related information
