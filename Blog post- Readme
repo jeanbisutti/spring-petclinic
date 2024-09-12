@@ -1,0 +1,3 @@
+mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=spring-petclinic-native
+
+docker-compose -f docker-compose-otel.yml up
