@@ -10,17 +10,11 @@ First, we clone the Spring PetClinic application from GitHub:
 git clone https://github.com/spring-projects/spring-petclinic.git
 ```
 
-In the `pom.xml` file, let's add the OpenTelemetry instrumentation BOM just next to the existing Testcontainers BOM:
+In the `pom.xml` file, let's add the OpenTelemetry instrumentation BOM:
 ```xml
   <dependencyManagement>
     <dependencies>
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>testcontainers-bom</artifactId>
-            <version>${testcontainers.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
+
         <dependency>
             <groupId>io.opentelemetry.instrumentation</groupId>
             <artifactId>opentelemetry-instrumentation-bom</artifactId>
@@ -109,7 +103,7 @@ Now, let's run the Spring PetClinic application and the OpenTelemetry collector:
 docker-compose -f docker-compose-otel.yml up
 ```
 
-Now, we can look at the collector logs;
+Now, we can look at the collector logs.
 
 We can spot one log record about the Spring PetClinic application startup:
 
