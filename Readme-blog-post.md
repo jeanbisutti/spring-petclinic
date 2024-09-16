@@ -26,7 +26,7 @@ In the `pom.xml` file, let's add the OpenTelemetry instrumentation BOM:
 </dependencyManagement>
 ```
 
-Now, we can add the OpenTelemetry Spring Boot starter dependency to the Spring PetClinic application:
+Now, we can include the OpenTelemetry Spring Boot starter dependency to the Spring PetClinic application:
 
 ```xml
   <dependency>
@@ -35,7 +35,7 @@ Now, we can add the OpenTelemetry Spring Boot starter dependency to the Spring P
   </dependency>
 ```
 
-Let's build a Spring Boot native image application:
+Navigate to the project directory and build a Spring Boot native image application:
 ```bash
 cd spring-petclinic
 mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=spring-petclinic-native
@@ -44,6 +44,8 @@ mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=spring-
 You may have to disable the `PostgresIntegrationTests` test class to get this command line, [see](https://github.com/spring-projects/spring-petclinic/issues/1522).
 
 The OpenTelemetry Spring Boot starter sends the telemetry data with the [OpenTelemetry Protocol](https://opentelemetry.io/docs/specs/otlp/) (OTLP). By default, it sends the data over HTTP. You can also switch to gRPC.
+
+By default, the OpenTelemetry Spring Boot starter sends telemetry data using the [OpenTelemetry Protocol](https://opentelemetry.io/docs/specs/otlp/) (OTLP) over HTTP, but it can also use gRPC.
 
 We are going to add an [OpenTelemetry collector](https://opentelemetry.io/docs/collector/) and display the telemetry data in the collector logs.
 
@@ -97,13 +99,13 @@ service:
 
 ```
 
-Now, let's run the Spring PetClinic application and the OpenTelemetry collector:
+Now, we can run the Spring PetClinic application and the OpenTelemetry collector:
 
 ```bash
 docker-compose -f docker-compose-otel.yml up
 ```
 
-Now, we can look at the collector logs.
+Let's check the collector logs to see the telemetry data.
 
 We can spot one log record about the Spring PetClinic application startup:
 
@@ -118,7 +120,7 @@ We can spot one log record about the Spring PetClinic application startup:
 
 The OpenTelemetry Spring Boot starter has instrumented Logbacka and has sent the 'Started PetClinicApplication in 0.489 seconds (process running for 0.493)' telemetry log record to the OpenTelemetry collector.
 
-Now, let's open the `http://localhost:8080/vets.html` in our web browser or execute the following curl command:
+Let's open the `http://localhost:8080/vets.html` in our web browser or execute the following curl command:
 ```shell
 curl http://localhost:8080/vets.html
 ```
