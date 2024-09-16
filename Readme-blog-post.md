@@ -499,3 +499,5 @@ collector-1  | Buckets #12, Count: 0
 collector-1  | Buckets #13, Count: 0
 collector-1  | Buckets #14, Count: 0
 ```
+
+Thanks to the Spring PetClinic application, we have shown some features of the OpenTelemetry Spring Boot starter. To know more about other features, don't hesitate to have a look a the the [OpenTelemetry Spring Boot starter documentation](/docs/zero-code/java/spring-boot-starter).
