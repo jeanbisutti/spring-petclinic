@@ -47,6 +47,8 @@ cd spring-petclinic
 mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=spring-petclinic-native
 ```
 
+You may have to disable the `PostgresIntegrationTests` test class to get this command line, [see](https://github.com/spring-projects/spring-petclinic/issues/1522).
+
 The OpenTelemetry Spring Boot starter sends the telemetry data with the [OpenTelemetry Protocol](https://opentelemetry.io/docs/specs/otlp/) (OTLP). By default, it sends the data over HTTP. You can also switch to gRPC.
 
 We are going to add an [OpenTelemetry collector](https://opentelemetry.io/docs/collector/) and display the telemetry data in the collector logs.
